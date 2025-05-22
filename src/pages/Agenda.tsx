@@ -20,7 +20,26 @@ const Agenda = () => {
         .order("date", { ascending: true });
       
       if (error) throw error;
-      return data;
+      
+      // Convert date strings to a format that allows proper sorting
+      const processedData = data.map(ride => {
+        // Extract day, month and year
+        const dateParts = ride.date.split(' ');
+        const day = parseInt(dateParts[0]);
+        const monthNames = ['januari', 'februari', 'maart', 'april', 'mei', 'juni', 
+                           'juli', 'augustus', 'september', 'oktober', 'november', 'december'];
+        const month = monthNames.indexOf(dateParts[1].toLowerCase());
+        const year = parseInt(dateParts[2]);
+        
+        // Store a sortable date for filtering
+        return {
+          ...ride,
+          sortableDate: new Date(year, month, day)
+        };
+      });
+      
+      // Sort rides by sortable date (ascending)
+      return processedData.sort((a, b) => a.sortableDate - b.sortableDate);
     },
   });
 
