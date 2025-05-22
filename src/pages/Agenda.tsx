@@ -39,7 +39,7 @@ const Agenda = () => {
       });
       
       // Sort rides by sortable date (ascending)
-      return processedData.sort((a, b) => a.sortableDate - b.sortableDate);
+      return processedData.sort((a, b) => a.sortableDate.getTime() - b.sortableDate.getTime());
     },
   });
 
