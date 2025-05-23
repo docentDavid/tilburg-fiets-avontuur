@@ -8,6 +8,9 @@ import AboutUs from "./pages/AboutUs";
 import Agenda from "./pages/Agenda";
 import NotFound from "./pages/NotFound";
 import InsertRides from "./pages/InsertRides"; // Add this import
+import Admin from "./pages/Admin";
+import UpdateDates from "./pages/UpdateDates";
+import UpdateDistances from "./pages/UpdateDistances";
 
 const queryClient = new QueryClient();
 
@@ -23,6 +26,9 @@ const App = () => (
           <Route path="/agenda" element={<Agenda />} />
           <Route path="/insert-rides" element={<InsertRides />} />{" "}
           {/* Add this route */}
+          <Route path="/admin" element={<Admin />} />
+          <Route path="/update-dates" element={<UpdateDates />} />
+          <Route path="/update-distances" element={<UpdateDistances />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

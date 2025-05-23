@@ -45,6 +45,12 @@ const Navbar = () => {
             >
               Agenda
             </Link>
+            <Link
+              to="/admin"
+              className="px-3 py-2 rounded-md text-sm font-medium text-gray-900 hover:text-cycling-blue transition-colors"
+            >
+              Admin
+            </Link>
             <Button className="ml-4 bg-cycling-blue hover:bg-blue-600 text-white">
               Word Lid
             </Button>
@@ -86,6 +92,12 @@ const Navbar = () => {
             className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-100 hover:text-cycling-blue"
           >
             Agenda
+          </Link>
+          <Link
+            to="/admin"
+            className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-100 hover:text-cycling-blue"
+          >
+            Admin
           </Link>
           <Button className="w-full mt-3 bg-cycling-blue hover:bg-blue-600 text-white">
             Word Lid
