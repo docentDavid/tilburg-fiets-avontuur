@@ -126,136 +126,76 @@ const Agenda = () => {
                 </Button>
               </div>
             ) : (
-              <>
-                <div className="hidden md:block mb-12">
-                  <Card>
-                    <CardContent className="p-0">
-                      <Table>
-                        <TableHeader>
-                          <TableRow>
-                            <TableHead>Rit</TableHead>
-                            <TableHead>Datum & Tijd</TableHead>
-                            <TableHead>Afstand</TableHead>
-                            <TableHead>Niveau</TableHead>
-                            <TableHead>Deelnemers</TableHead>
-                            <TableHead className="text-right">Actie</TableHead>
-                          </TableRow>
-                        </TableHeader>
-                        <TableBody>
-                          {rides?.map((ride) => (
-                            <TableRow key={ride.id}>
-                              <TableCell className="font-medium">
-                                {ride.title}
-                              </TableCell>
-                              <TableCell>
-                                <div className="flex items-center gap-2">
-                                  <CalendarIcon className="h-4 w-4" />
-                                  <span>{ride.date}</span>
-                                  <ClockIcon className="h-4 w-4 ml-2" />
-                                  <span>{ride.time}</span>
-                                </div>
-                              </TableCell>
-                              <TableCell>{ride.distance} km</TableCell>
-                              <TableCell>
-                                <span
-                                  className={`px-2 py-1 rounded-full text-xs ${
-                                    ride.level === "Uitdagend"
-                                      ? "bg-orange-100 text-orange-700"
-                                      : ride.level === "Gemiddeld"
-                                      ? "bg-blue-100 text-blue-700"
-                                      : "bg-green-100 text-green-700"
-                                  }`}
-                                >
-                                  {ride.level}
-                                </span>
-                              </TableCell>
-                              <TableCell>
-                                {ride.participants}/{ride.max_participants}
-                              </TableCell>
-                              <TableCell className="text-right">
-                                <Button className="bg-cycling-blue hover:bg-blue-600">
-                                  Inschrijven
-                                </Button>
-                              </TableCell>
-                            </TableRow>
-                          ))}
-                        </TableBody>
-                      </Table>
-                    </CardContent>
-                  </Card>
-                </div>
-
-                <div className="md:hidden grid grid-cols-1 gap-6 mb-12">
-                  {rides?.map((ride) => (
-                    <Card
-                      key={ride.id}
-                      className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
-                    >
-                      <CardHeader className="pb-2">
-                        <div className="flex justify-between items-start">
-                          <CardTitle className="text-xl font-bold text-gray-900">
-                            {ride.title}
-                          </CardTitle>
-                          <span
-                            className={`px-3 py-1 rounded-full text-sm font-medium ${
-                              ride.level === "Uitdagend"
-                                ? "bg-orange-100 text-orange-700"
-                                : ride.level === "Gemiddeld"
-                                ? "bg-blue-100 text-blue-700"
-                                : "bg-green-100 text-green-700"
-                            }`}
-                          >
-                            {ride.level}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                {rides?.map((ride) => (
+                  <Card
+                    key={ride.id}
+                    className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+                  >
+                    <CardHeader className="pb-2">
+                      <div className="flex justify-between items-start">
+                        <CardTitle className="text-xl font-bold text-gray-900">
+                          {ride.title}
+                        </CardTitle>
+                        <span
+                          className={`px-3 py-1 rounded-full text-sm font-medium ${
+                            ride.level === "Uitdagend"
+                              ? "bg-orange-100 text-orange-700"
+                              : ride.level === "Gemiddeld"
+                              ? "bg-blue-100 text-blue-700"
+                              : "bg-green-100 text-green-700"
+                          }`}
+                        >
+                          {ride.level}
+                        </span>
+                      </div>
+                      <CardDescription>
+                        <div className="flex items-center text-gray-600 mt-2">
+                          <CalendarIcon className="w-5 h-5 mr-2" />
+                          <span>
+                            {ride.date} - {ride.time}
                           </span>
                         </div>
-                        <CardDescription>
-                          <div className="flex items-center text-gray-600 mt-2">
-                            <CalendarIcon className="w-5 h-5 mr-2" />
-                            <span>
-                              {ride.date} - {ride.time}
-                            </span>
-                          </div>
-                          <div className="flex items-center text-gray-600 mt-2">
-                            <Bike className="w-5 h-5 mr-2" />
-                            <span>{ride.distance} km</span>
-                          </div>
-                        </CardDescription>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-gray-700">{ride.description}</p>
-                      </CardContent>
-                      <CardFooter className="flex justify-between items-center pt-2">
-                        <div className="text-sm text-gray-600">
-                          <span className="font-medium">
-                            {ride.participants}/{ride.max_participants}
-                          </span>{" "}
-                          deelnemers
+                        <div className="flex items-center text-gray-600 mt-2">
+                          <Bike className="w-5 h-5 mr-2" />
+                          <span>{ride.distance} km</span>
                         </div>
-                        <Button className="bg-cycling-blue hover:bg-blue-600">
-                          Inschrijven
-                        </Button>
-                      </CardFooter>
-                    </Card>
-                  ))}
-                </div>
-
-                <Pagination>
-                  <PaginationContent>
-                    <PaginationItem>
-                      <PaginationPrevious href="#" />
-                    </PaginationItem>
-                    <PaginationItem>
-                      <PaginationLink href="#" isActive>
-                        1
-                      </PaginationLink>
-                    </PaginationItem>
-                    <PaginationItem>
-                      <PaginationNext href="#" />
-                    </PaginationItem>
-                  </PaginationContent>
-                </Pagination>
-              </>
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-gray-700">{ride.description}</p>
+                    </CardContent>
+                    <CardFooter className="flex justify-between items-center pt-2">
+                      <div className="text-sm text-gray-600">
+                        <span className="font-medium">
+                          {ride.participants}/{ride.max_participants}
+                        </span>{" "}
+                        deelnemers
+                      </div>
+                      <Button className="bg-cycling-blue hover:bg-blue-600">
+                        Inschrijven
+                      </Button>
+                    </CardFooter>
+                  </Card>
+                ))}
+              </div>
             )}
+
+            <Pagination>
+              <PaginationContent>
+                <PaginationItem>
+                  <PaginationPrevious href="#" />
+                </PaginationItem>
+                <PaginationItem>
+                  <PaginationLink href="#" isActive>
+                    1
+                  </PaginationLink>
+                </PaginationItem>
+                <PaginationItem>
+                  <PaginationNext href="#" />
+                </PaginationItem>
+              </PaginationContent>
+            </Pagination>
           </div>
         </section>
       </main>

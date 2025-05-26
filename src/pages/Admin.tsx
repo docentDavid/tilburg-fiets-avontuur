@@ -32,7 +32,15 @@ import {
 import { format } from "date-fns";
 import { nl } from "date-fns/locale";
 import { cn } from "@/lib/utils";
-import { CalendarIcon } from "lucide-react";
+import { CalendarIcon, ClockIcon } from "lucide-react";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 
 const monthNames = [
   "januari",
@@ -348,55 +356,75 @@ const Admin = () => {
             Er is een fout opgetreden bij het laden van de ritten.
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {rides?.map((ride) => (
-              <Card key={ride.id}>
-                <CardHeader>
-                  <CardTitle className="flex justify-between items-start">
-                    <span>{ride.title}</span>
-                    <div className="flex space-x-2">
-                      <Button
-                        variant="ghost"
-                        size="icon"
-                        onClick={() => handleEdit(ride)}
-                      >
-                        <Pencil className="w-4 h-4" />
-                      </Button>
-                      <Button
-                        variant="ghost"
-                        size="icon"
-                        onClick={() => handleDelete(ride.id)}
-                      >
-                        <Trash2 className="w-4 h-4" />
-                      </Button>
-                    </div>
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-2">
-                    <p>
-                      <strong>Datum:</strong> {ride.date}
-                    </p>
-                    <p>
-                      <strong>Tijd:</strong> {ride.time}
-                    </p>
-                    <p>
-                      <strong>Afstand:</strong> {ride.distance} km
-                    </p>
-                    <p>
-                      <strong>Niveau:</strong> {ride.level}
-                    </p>
-                    <p>
-                      <strong>Deelnemers:</strong> {ride.participants}/
-                      {ride.max_participants}
-                    </p>
-                    <p>
-                      <strong>Beschrijving:</strong> {ride.description}
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="mb-12">
+            <Card>
+              <CardContent className="p-0">
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>Rit</TableHead>
+                      <TableHead>Datum & Tijd</TableHead>
+                      <TableHead>Afstand</TableHead>
+                      <TableHead>Niveau</TableHead>
+                      <TableHead>Deelnemers</TableHead>
+                      <TableHead className="text-right">Acties</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {rides?.map((ride) => (
+                      <TableRow key={ride.id}>
+                        <TableCell className="font-medium">
+                          {ride.title}
+                        </TableCell>
+                        <TableCell>
+                          <div className="flex items-center gap-2">
+                            <CalendarIcon className="h-4 w-4" />
+                            <span>{ride.date}</span>
+                            <ClockIcon className="h-4 w-4 ml-2" />
+                            <span>{ride.time}</span>
+                          </div>
+                        </TableCell>
+                        <TableCell>{ride.distance} km</TableCell>
+                        <TableCell>
+                          <span
+                            className={`px-2 py-1 rounded-full text-xs ${
+                              ride.level === "Uitdagend"
+                                ? "bg-orange-100 text-orange-700"
+                                : ride.level === "Gemiddeld"
+                                ? "bg-blue-100 text-blue-700"
+                                : "bg-green-100 text-green-700"
+                            }`}
+                          >
+                            {ride.level}
+                          </span>
+                        </TableCell>
+                        <TableCell>
+                          {ride.participants}/{ride.max_participants}
+                        </TableCell>
+                        <TableCell className="text-right">
+                          <div className="flex justify-end space-x-2">
+                            <Button
+                              variant="ghost"
+                              size="icon"
+                              onClick={() => handleEdit(ride)}
+                            >
+                              <Pencil className="w-4 h-4" />
+                            </Button>
+                            <Button
+                              variant="ghost"
+                              size="icon"
+                              onClick={() => handleDelete(ride.id)}
+                            >
+                              <Trash2 className="w-4 h-4" />
+                            </Button>
+                          </div>
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </CardContent>
+            </Card>
           </div>
         )}
 
