@@ -14,9 +14,10 @@ const Hero = () => {
 
       <div className="container relative z-10 pt-20 pb-24 md:pt-32 md:pb-32">
         <div className="max-w-3xl">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 animate-fade-in">
+          <h1 className="text-4xl leading-[2.4rem] md:text-5xl md:leading-[3rem] lg:text-6xl lg:leading-[4.4rem] font-bold mb-6 animate-fade-in text-balance">
             Samen fietsen, samen genieten in Tilburg
           </h1>
+
           <p className="text-lg md:text-xl mb-8 text-blue-100">
             Word lid van dé wielrenclub voor recreatieve en fanatieke fietsers
             in en rondom Tilburg. Ontdek mooie routes, train met gelijkgestemden
