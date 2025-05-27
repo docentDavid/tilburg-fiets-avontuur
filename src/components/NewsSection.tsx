@@ -9,8 +9,7 @@ const NewsSection = () => {
       date: "15 mei 2025",
       excerpt:
         "Dit jaar organiseren we weer een geweldige fietsweek in de Ardennen. Inclusief bagagevervoer, begeleiding en verblijf.",
-      image:
-        "https://images.unsplash.com/photo-1533294455009-a6f974fcb3c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      image: "/images/cycling-ardennes.jpg",
     },
     {
       id: 2,
@@ -18,8 +17,7 @@ const NewsSection = () => {
       date: "10 mei 2025",
       excerpt:
         "Onze nieuwe clubkleding is binnen! Leden kunnen nu hun bestelling plaatsen via het ledenportaal.",
-      image:
-        "https://images.unsplash.com/photo-1565100561709-80429f3a10c1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80",
+      image: "/images/cycling-clothing.jpg",
     },
     {
       id: 3,
@@ -27,8 +25,7 @@ const NewsSection = () => {
       date: "5 mei 2025",
       excerpt:
         "Leer hoe je zelf kleine reparaties en onderhoud aan je fiets kunt doen tijdens onze workshop op 20 mei.",
-      image:
-        "https://images.unsplash.com/photo-1603102859961-64b17d43580d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      image: "/images/bike-repair.jpg",
     },
   ];
 

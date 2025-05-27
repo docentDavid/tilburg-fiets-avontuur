@@ -28,7 +28,7 @@ const Hero = () => {
               size="lg"
               className="bg-cycling-orange hover:bg-orange-600 text-white rounded-full px-8 py-6 text-lg shadow-lg hover:shadow-xl transition-all"
             >
-              <Link to="/word-lid">Word Lid</Link>
+              <Link to="#">Word Lid</Link>
             </Button>
             <Button
               asChild
