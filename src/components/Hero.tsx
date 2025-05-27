@@ -36,7 +36,7 @@ const Hero = () => {
               variant="outline"
               className="bg-white/10 backdrop-blur hover:bg-white/20 text-white border-white/30 rounded-full px-8 py-6 text-lg"
             >
-              <Link to="/agenda">Bekijk Onze Ritten</Link>
+              <Link to="/agenda">Bekijk Ritten</Link>
             </Button>
           </div>
         </div>
