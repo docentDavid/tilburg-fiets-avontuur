@@ -60,12 +60,12 @@ const Navbar = () => {
             >
               Agenda
             </Link>
-            <Link
+            {/* <Link
               to="/admin"
               className="px-3 py-2 rounded-md text-sm font-medium text-gray-900 hover:text-cycling-blue transition-colors"
             >
               Admin
-            </Link>
+            </Link> */}
             <Button className="ml-4 bg-cycling-blue hover:bg-blue-600 text-white">
               Word Lid
             </Button>
